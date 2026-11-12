@@ -1,51 +1,75 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f7f8fc">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123b78">
 <title>CSC SMART BISEK</title>
 <style>
-:root{--ink:#172033;--muted:#687386;--line:#e8ebf2;--blue:#2864d7;--pale:#edf4ff;--bg:#f7f8fc}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;color:var(--ink)}
-header{background:#fff;border-bottom:1px solid var(--line);padding:15px 16px;position:sticky;top:0;z-index:2}
-.top{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{font-weight:800;font-size:18px}.sub{font-size:11px;color:var(--muted);margin-top:2px}
-.pill{font-size:11px;background:#e9f8ef;color:#168447;border-radius:20px;padding:6px 10px}
-main{max-width:1100px;margin:20px auto;padding:0 14px 40px}
-h1{font-size:21px;margin:0 0 4px}.welcome{color:var(--muted);font-size:13px;margin-bottom:17px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
-.stat,.service{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 2px 8px #14213b08}
-.stat{padding:14px}.stat .num{font-size:22px;font-weight:800;margin-top:7px}.stat small{color:var(--muted);font-size:11px}
-.section{font-size:13px;font-weight:800;margin:20px 0 11px;letter-spacing:.2px}
-.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
-.service{padding:13px;min-height:155px;display:flex;flex-direction:column;align-items:flex-start}
-.emoji{width:35px;height:35px;border-radius:11px;background:var(--pale);display:grid;place-items:center;font-size:19px;margin-bottom:10px}
-.service h3{font-size:13px;line-height:1.35;margin:0 0 5px}.service p{font-size:11px;color:var(--muted);line-height:1.4;margin:0 0 12px}
-.service button{margin-top:auto;border:0;border-radius:20px;background:var(--pale);color:#2456ad;font-weight:700;font-size:11px;padding:7px 11px}
-.notice{background:#fff8e8;border:1px solid #f4e2b6;border-radius:12px;padding:12px;font-size:12px;line-height:1.5;color:#71551c;margin-top:20px}
-footer{text-align:center;color:var(--muted);font-size:11px;padding:20px}
-@media(max-width:600px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{gap:7px}.stat{padding:10px}.stat .num{font-size:19px}.service{padding:11px;min-height:165px}}
+*{box-sizing:border-box}
+body{margin:0;background:#f3f6fc;color:#172033;font-family:Arial,sans-serif}
+header{background:#123b78;color:white;padding:22px 15px;text-align:center}
+header h1{margin:0;font-size:25px}
+header p{margin:8px 0 0;font-size:14px}
+.container{max-width:1000px;margin:auto;padding:18px}
+.welcome{background:white;padding:18px;border-radius:14px;margin-bottom:18px}
+.welcome h2{margin:0 0 8px;color:#123b78}
+.section{font-weight:bold;color:#123b78;margin:20px 0 12px}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.service{background:white;padding:15px;border-radius:13px;border:1px solid #e2e8f0;display:flex;flex-direction:column;min-height:160px}
+.emoji{font-size:27px}
+.service h3{font-size:15px;margin:10px 0 7px}
+.service p{font-size:12px;color:#687386;line-height:1.5}
+button{margin-top:auto;background:#123b78;color:white;border:0;border-radius:8px;padding:10px;cursor:pointer}
+.whatsapp{display:block;text-align:center;background:#168b48;color:white;text-decoration:none;padding:15px;border-radius:10px;margin:22px 0;font-weight:bold}
+.notice{background:#fff7e6;padding:13px;border-radius:10px;font-size:12px;line-height:1.6}
+footer{text-align:center;background:#123b78;color:white;padding:18px;font-size:13px}
+@media(max-width:650px){.services{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:360px){.services{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header><div class="top"><div><div class="brand">🖥️ Digital Seva Center</div><div class="sub">आपका ऑनलाइन सेवा पोर्टल • Demo</div></div><span class="pill">● Demo Online</span></div></header>
-<main>
-<h1>नमस्ते! स्वागत है 👋</h1>
-<div class="welcome">अपनी जरूरत की सेवा चुनें।</div>
-<div class="stats">
- <div class="stat"><div>🖨️</div><div class="num">0</div><small>कुल डेमो ऑर्डर</small></div>
- <div class="stat"><div>💳</div><div class="num">₹0</div><small>डेमो वॉलेट</small></div>
- <div class="stat"><div>📄</div><div class="num">0</div><small>आज के ऑर्डर</small></div>
+
+<header>
+<h1>CSC SMART BISEK</h1>
+<p>आपका अपना डिजिटल सेवा केंद्र</p>
+</header>
+
+<div class="container">
+
+<div class="welcome">
+<h2>नमस्ते! स्वागत है 🙏</h2>
+<p>अपनी जरूरत की सेवा चुनें और WhatsApp से संपर्क करें।</p>
 </div>
-<div class="section">▦ PRINT SERVICES</div>
+
+<div class="section">सभी डिजिटल सेवाएँ</div>
 <div class="services" id="services"></div>
-<div class="notice"><b>महत्वपूर्ण सूचना:</b> यह शुरुआती डिजाइन/डेमो है। यहां दिए गए बटन वास्तविक सरकारी आवेदन, आधार/PAN डाउनलोड, OTP सत्यापन या भुगतान नहीं करते। ऐसी सेवाओं के लिए संबंधित विभाग की आधिकारिक वेबसाइट और वैध अनुमति/API जरूरी है।</div>
-</main>
-<footer>CSC SMART BISEK• Demo Website</footer>
+
+<a class="whatsapp"
+href="https://wa.me/917281877653"
+target="_blank">
+🟢 WhatsApp पर संपर्क करें
+</a>
+
+<div class="notice">
+<b>महत्वपूर्ण सूचना:</b><br>
+यह वेबसाइट सेवा संबंधी जानकारी और संपर्क के लिए है।
+आधार, PAN, प्रमाणपत्र और अन्य सरकारी सेवाओं के आवेदन
+केवल संबंधित अधिकृत सरकारी पोर्टल या अधिकृत केंद्र से करें।
+यह वेबसाइट स्वयं सरकारी विभाग नहीं है।
+</div>
+
+</div>
+
+<footer>
+© 2026 CSC SMART BISEK | All Rights Reserved
+<br><br>
+WhatsApp: 7281877653
+</footer>
+
 <script>
-const items=[
+const items = [
 ["🪪","Aadhaar Print","अधिकृत स्रोत से प्राप्त दस्तावेज़ का प्रिंट"],
 ["💳","PAN Card Print","PAN से जुड़ी अधिकृत प्रिंट सेवा"],
 ["📜","Jati Certificate","जाति प्रमाणपत्र आवेदन जानकारी"],
@@ -63,16 +87,40 @@ const items=[
 ["🩺","Ayushman Card","आयुष्मान सेवा की आधिकारिक जानकारी"],
 ["📑","Income Certificate","आय प्रमाणपत्र आवेदन जानकारी"]
 ];
-const root=document.getElementById("services");
-items.forEach(([icon,name,desc])=>{
- const card=document.createElement("article");card.className="service";
- const badge=document.createElement("div");badge.className="emoji";badge.textContent=icon;
- const title=document.createElement("h3");title.textContent=name;
- const para=document.createElement("p");para.textContent=desc;
- const btn=document.createElement("button");btn.textContent="सेवा देखें →";
- btn.addEventListener("click",()=>alert(name+" — यह अभी डेमो है। वास्तविक सेवा जोड़ने के लिए अधिकृत लिंक/API आवश्यक है।"));
- card.append(badge,title,para,btn);root.append(card);
+
+const root = document.getElementById("services");
+
+items.forEach(([icon,name,desc]) => {
+const card = document.createElement("div");
+card.className = "service";
+
+const emoji = document.createElement("div");
+emoji.className = "emoji";
+emoji.textContent = icon;
+
+const title = document.createElement("h3");
+title.textContent = name;
+
+const para = document.createElement("p");
+para.textContent = desc;
+
+const btn = document.createElement("button");
+btn.textContent = "WhatsApp से पूछें";
+
+btn.addEventListener("click", () => {
+const message = "नमस्ते, मुझे " + name +
+" सेवा की जानकारी चाहिए।";
+window.open(
+"https://wa.me/917281877653?text=" +
+encodeURIComponent(message),
+"_blank"
+);
+});
+
+card.append(emoji,title,para,btn);
+root.append(card);
 });
 </script>
+
 </body>
 </html>
