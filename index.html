@@ -1,214 +1,265 @@
-l<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#123b78">
-<title>CSC SMART BISEK</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123b78"><title>CSC SMART BISEK</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f3f6fc;color:#172033;font-family:Arial,sans-serif}
-header{background:#123b78;color:#fff;padding:22px 15px;text-align:center}header h1{margin:0;font-size:25px}header p{margin:8px 0 0;font-size:14px}
-.container{max-width:1100px;margin:auto;padding:18px}.welcome,.panel{background:#fff;padding:18px;border-radius:14px;margin-bottom:18px;border:1px solid #e2e8f0}
-.welcome h2{margin:0 0 8px;color:#123b78}.section{font-weight:bold;color:#123b78;margin:20px 0 12px}
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.service{background:#fff;padding:15px;border-radius:13px;border:1px solid #e2e8f0;display:flex;flex-direction:column;min-height:170px}
-.emoji{font-size:27px}.service h3{font-size:15px;margin:10px 0 7px}.service p{font-size:12px;color:#687386;line-height:1.5}
-button,.btn{background:#123b78;color:white;border:0;border-radius:8px;padding:11px 14px;cursor:pointer;font-weight:bold;text-decoration:none;display:inline-block}
-button:disabled{opacity:.55;cursor:not-allowed}.secondary{background:#64748b}.green{background:#168b48}.danger{background:#b42318}
-input,select,textarea{width:100%;padding:12px;margin:6px 0 13px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;background:#fff}
-label{font-size:13px;font-weight:bold}small,.muted{color:#64748b}.notice{background:#fff7e6;padding:13px;border-radius:10px;font-size:12px;line-height:1.6;margin:18px 0}
-footer{text-align:center;background:#123b78;color:white;padding:18px;font-size:13px;margin-top:25px}
-.hidden{display:none!important}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}.stat{background:#eef4ff;padding:13px;border-radius:10px}.stat b{display:block;font-size:22px;color:#123b78}
-.request{border:1px solid #dbe3ef;padding:14px;border-radius:10px;margin:12px 0;background:#fff}.request h3{margin:0 0 8px}.doclink{display:inline-block;margin:5px 8px 5px 0}
-hr{border:0;border-top:1px solid #e2e8f0;margin:20px 0}.payment{max-width:420px;margin:25px auto;padding:20px;text-align:center;border:1px solid #ddd;border-radius:14px;background:white}
-#upiQR{display:inline-block;margin:15px}
-@media(max-width:650px){.services{grid-template-columns:repeat(2,1fr)}.form-grid,.stats{grid-template-columns:1fr 1fr}}
-@media(max-width:360px){.services{grid-template-columns:1fr}.form-grid,.stats{grid-template-columns:1fr}}
+:root{--blue:#123b78;--light:#eef4ff;--ink:#172033;--muted:#64748b;--line:#dbe3ef}
+*{box-sizing:border-box}body{margin:0;background:#f3f6fc;color:var(--ink);font-family:Arial,sans-serif}
+header{background:var(--blue);color:white;padding:20px 14px;text-align:center}header h1{margin:0;font-size:25px}header p{margin:7px 0 0}
+main{max-width:1100px;margin:auto;padding:16px}.panel,.welcome,.service,.request,.payment{background:white;border:1px solid var(--line);border-radius:14px;padding:17px;margin-bottom:15px}
+h2{color:var(--blue);margin:0 0 12px}.muted,small{color:var(--muted)}.section{font-weight:bold;color:var(--blue);margin:20px 0 12px}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.service{display:flex;flex-direction:column;min-height:175px;margin:0}.emoji{font-size:28px}.service h3{font-size:15px;margin:8px 0}.service p{font-size:13px;color:var(--muted);flex:1}
+button,.btn{background:var(--blue);color:#fff;border:0;border-radius:8px;padding:11px 14px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+button:disabled{opacity:.5}.secondary{background:#64748b}.green{background:#168b48}.danger{background:#b42318}
+input,select,textarea{width:100%;padding:12px;margin:6px 0 13px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}
+label{font-size:13px;font-weight:bold}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.hidden{display:none!important}
+.notice{background:#fff7e6;padding:13px;border-radius:10px;font-size:12px;line-height:1.6;margin:16px 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:var(--light);padding:13px;border-radius:10px}.stat b{display:block;font-size:22px;color:var(--blue)}
+.request{margin:12px 0}.request h3{margin:0 0 8px}#serviceFields{display:grid;grid-template-columns:1fr 1fr;gap:8px}#serviceFields h4{grid-column:1/-1;color:var(--blue);margin:8px 0 0}.pill{display:inline-block;background:var(--light);padding:5px 9px;border-radius:20px;font-size:12px}
+footer{text-align:center;background:var(--blue);color:white;padding:18px;margin-top:25px;font-size:13px}
+@media(max-width:650px){.services{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:1fr 1fr}#serviceFields{grid-template-columns:1fr}}
+@media(max-width:360px){.services,.stats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header><h1>CSC SMART BISEK</h1><p>आपका अपना डिजिटल सेवा केंद्र</p></header>
-
-<main class="container">
-<section id="customerHome">
- <div class="welcome"><h2>नमस्ते! स्वागत है 🙏</h2><p>अपनी जरूरत की सेवा चुनें, फॉर्म भरें और आवेदन सीधे हमारे Admin Panel में जमा करें।</p></div>
- <div class="section">सभी डिजिटल सेवाएँ</div>
- <div class="services" id="services"></div>
- <div class="notice"><b>महत्वपूर्ण सूचना:</b><br>यह स्वतंत्र सेवा-सहायता वेबसाइट है, सरकारी वेबसाइट नहीं। सरकारी सेवाओं के आवेदन केवल संबंधित अधिकृत सरकारी पोर्टल या अधिकृत केंद्र से ही किए जाएँगे। OTP, पासवर्ड या अनावश्यक संवेदनशील जानकारी यहाँ न भरें।</div>
+<main>
+<section id="home">
+ <div class="welcome"><h2>नमस्ते! स्वागत है 🙏</h2><p>सेवा चुनें और आवेदन करने के लिए अपने ग्राहक खाते में लॉगिन करें।</p>
+ <div class="actions"><button onclick="show('auth')">Customer Login / Register</button><button class="secondary" onclick="show('admin')">Admin Login</button></div></div>
+ <div class="section">सभी डिजिटल सेवाएँ</div><div class="services" id="services"></div>
+ <div class="notice"><b>महत्वपूर्ण सूचना:</b> यह स्वतंत्र सेवा-सहायता वेबसाइट है, सरकारी वेबसाइट नहीं। सरकारी सेवाओं के आवेदन संबंधित अधिकृत पोर्टल या अधिकृत केंद्र से ही किए जाएँगे। यहाँ OTP, Aadhaar PIN या बैंक पासवर्ड न लिखें।</div>
 </section>
 
-<section id="applicationPanel" class="panel hidden">
- <h2 id="formHeading">सेवा आवेदन</h2>
-<p class="muted">नीचे अपनी जानकारी भरें। PDF/JPG/PNG दस्तावेज़ अपलोड कर सकते हैं (अधिकतम 10 MB प्रति फाइल)।</p>
-<form id="requestForm">
- <label>आपका नाम *</label><input id="customerName" maxlength="100" required autocomplete="name">
- <label>मोबाइल नंबर *</label><input id="customerMobile" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" required placeholder="10 अंकों का मोबाइल नंबर">
- <label>सेवा *</label><select id="serviceName" required></select>
- <label>आवश्यक जानकारी / संदेश *</label><textarea id="message" rows="4" maxlength="1500" required placeholder="कृपया अपनी जरूरत लिखें। Aadhaar नंबर, OTP या पासवर्ड न लिखें।"></textarea>
- <label>दस्तावेज़ अपलोड करें (वैकल्पिक)</label><input id="documents" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png">
- <small>अधिकतम 5 फाइलें, हर फाइल 10 MB तक। केवल PDF, JPG और PNG।</small>
- <div class="actions"><button id="submitBtn" type="submit">आवेदन Submit करें</button><button type="button" class="secondary" id="cancelForm">वापस जाएँ</button></div>
- <p id="formMessage" role="status"></p>
-</form>
+<section id="auth" class="panel hidden">
+ <h2>ग्राहक खाता</h2><p class="muted">मोबाइल नंबर और पासवर्ड से रजिस्ट्रेशन या लॉगिन करें।</p>
+ <div class="actions"><button id="regTab" onclick="authMode('register')">नया रजिस्ट्रेशन</button><button class="secondary" id="loginTab" onclick="authMode('login')">लॉगिन</button></div>
+ <form id="authForm"><div id="nameWrap"><label>पूरा नाम</label><input id="fullName" maxlength="100" autocomplete="name"></div>
+ <label>मोबाइल नंबर</label><input id="phone" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" required placeholder="10 अंकों का मोबाइल नंबर">
+ <label>पासवर्ड</label><input id="password" type="password" minlength="8" required autocomplete="current-password" placeholder="कम से कम 8 अक्षर">
+ <button id="authSubmit" type="submit">रजिस्ट्रेशन करें</button><p id="authMsg" role="status"></p></form>
+ <button class="secondary" onclick="show('home')">वापस</button>
 </section>
 
-<section id="adminPanel" class="panel hidden">
- <div class="actions" style="justify-content:space-between;align-items:center"><h2>Admin Dashboard</h2><button class="secondary" id="logoutBtn">Logout</button></div>
- <div id="adminLogin">
-  <p class="muted">Admin ईमेल और पासवर्ड से Login करें।</p>
-  <form id="loginForm"><label>Admin Email</label><input id="adminEmail" type="email" required autocomplete="username"><label>Password</label><input id="adminPassword" type="password" required autocomplete="current-password"><button type="submit">Admin Login</button><p id="loginMessage" role="status"></p></form>
- </div>
- <div id="adminContent" class="hidden">
-  <div class="stats"><div class="stat"><b id="totalCount">0</b><span>कुल आवेदन</span></div><div class="stat"><b id="pendingCount">0</b><span>Pending</span></div><div class="stat"><b id="doneCount">0</b><span>Completed</span></div></div>
-  <button id="refreshBtn" class="secondary">आवेदन Refresh करें</button><p id="adminMessage" role="status"></p>
-  <div id="requestList"></div>
- </div>
+<section id="customer" class="panel hidden">
+ <div class="actions" style="justify-content:space-between;align-items:center"><h2>मेरा Customer Dashboard</h2><button class="secondary" onclick="logout()">Logout</button></div>
+ <p id="customerHello"></p><div class="stats"><div class="stat"><b id="myApps">0</b>मेरे आवेदन</div><div class="stat"><b id="myPending">0</b>Pending</div><div class="stat"><b id="myPaid">₹0</b>कुल भुगतान</div></div>
+ <h3>नया सेवा आवेदन</h3><form id="requestForm"><label>सेवा चुनें</label><select id="serviceName" required></select>
+ <label>आवश्यक जानकारी / संदेश</label><textarea id="message" rows="3" maxlength="1500" required placeholder="अपनी जरूरत लिखें। OTP/पासवर्ड न लिखें।"></textarea>
+ <button id="requestSubmit">आवेदन जमा करें</button><p id="requestMsg" role="status"></p></form>
+ <hr><h3>मेरे आवेदन</h3><div id="myRequests"></div><hr><h3>मेरी पेमेंट हिस्ट्री</h3><div id="myPayments"></div>
 </section>
 
-<section class="payment">
- <h2>CSC SMART BISEK - UPI Payment</h2><p>PhonePe, Google Pay या किसी UPI ऐप से भुगतान करें।</p>
- <label for="payAmount">भुगतान की राशि (₹)</label><input id="payAmount" type="number" min="1" step="1" placeholder="राशि डालें">
- <div id="upiQR"></div><p>UPI ID: <b>7281877653-2@ybl</b></p>
- <button type="button" class="green" onclick="payUPI()">Pay Now</button>
- <small style="display:block;margin-top:10px">भुगतान की पुष्टि आपके UPI ऐप/बैंक में जाँचें। यह वेबसाइट अपने आप भुगतान सत्यापित नहीं करती।</small>
+<section id="admin" class="panel hidden">
+ <div class="actions" style="justify-content:space-between;align-items:center"><h2>Admin Dashboard</h2><button class="secondary" onclick="adminLogout()">Logout</button></div>
+ <div id="adminLogin"><form id="adminForm"><label>Admin Email</label><input id="adminEmail" type="email" required><label>Password</label><input id="adminPassword" type="password" required><button>Admin Login</button><p id="adminMsg"></p></form></div>
+ <div id="adminContent" class="hidden"><div class="stats"><div class="stat"><b id="allApps">0</b>कुल आवेदन</div><div class="stat"><b id="allPending">0</b>Pending</div><div class="stat"><b id="allPaid">₹0</b>कुल verified payment</div></div>
+ <button onclick="loadAdmin()" class="secondary">Refresh</button><div id="adminRequests"></div><hr><h3>Payment Verification</h3><div id="adminPayments"></div></div>
 </section>
-<div class="actions"><button class="secondary" id="showHomeBtn">Customer Dashboard</button><button class="secondary" id="showAdminBtn">Admin Login</button></div>
 </main>
-<footer>© 2026 CSC SMART BISEK | All Rights Reserved<br><br>संपर्क: 7281877653</footer>
-
+<footer>© 2026 CSC SMART BISEK | संपर्क: 7281877653</footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-/* Publishable key is designed for browser use. Never put a Supabase secret/service_role key here. */
-const SUPABASE_URL = "https://yvmnfcubgvdklqfeswat.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_bfxjt9siFOljRUkcZEGL2Q_9VV1qDgn";
-const ADMIN_UID =  "d0d29fcd-490e-4bb6-a1b2-574e23cccca8";
-const BUCKET = "customer-documents";
-const { createClient } = supabase;
-const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+/* Browser-safe publishable key only. Never add service_role or Razorpay secret keys here. */
+const SUPABASE_URL="https://yvmnfcubgvdklqfeswat.supabase.co";
+const SUPABASE_ANON_KEY="sb_publishable_bfxjt9siFOljRUkcZEGLQ2_9VV1qDgn";
+const ADMIN_UID="d0d29fcd-490e-4bb6-a1b2-574e23cccca8";
+const db=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+const $=id=>document.getElementById(id);
+const services=[
+["🪪","Aadhaar Print","अधिकृत स्रोत से प्राप्त दस्तावेज़ का प्रिंट"],["💳","PAN Card Print","PAN से जुड़ी अधिकृत प्रिंट सेवा"],
+["📜","Jati Certificate","जाति प्रमाणपत्र आवेदन जानकारी"],["🏠","Niwas Certificate","निवास प्रमाणपत्र आवेदन जानकारी"],
+["🗳️","Voter ID Download","मतदाता सेवा की आधिकारिक जानकारी"],["📱","Voter Mobile Link","मतदाता विवरण अपडेट की जानकारी"],
+["🚘","Driving Licence Print","लाइसेंस सेवाओं की जानकारी"],["🚗","Vehicle RC Print","वाहन RC सेवाओं की जानकारी"],
+["📸","Passport Size Photo","पासपोर्ट फोटो तैयार करने की सुविधा"],["👷","E-Shram Card","ई-श्रम की आधिकारिक जानकारी"],
+["🍚","Ration Card Print","राशन कार्ड सेवाओं की जानकारी"],["🧰","Labour Card Print","श्रमिक कार्ड सेवाओं की जानकारी"],
+["🩺","Ayushman Card","आयुष्मान सेवा की आधिकारिक जानकारी"],["📑","Income Certificate","आय प्रमाणपत्र आवेदन जानकारी"],
+["🏢","Business Service","व्यवसाय आवेदन"],["🍚","Ration Complaint","राशन संबंधी शिकायत"],
+["📃","Character Certificate","चरित्र प्रमाणपत्र आवेदन जानकारी"]];
 
-const items = [
-["🪪","Aadhaar Print","अधिकृत स्रोत से प्राप्त दस्तावेज़ का प्रिंट"],
-["💳","PAN Card Print","PAN से जुड़ी अधिकृत प्रिंट सेवा"],
-["📜","Jati Certificate","जाति प्रमाणपत्र आवेदन जानकारी"],
-["🏠","Niwas Certificate","निवास प्रमाणपत्र आवेदन जानकारी"],
-["🗳️","Voter ID Download","मतदाता सेवा की आधिकारिक जानकारी"],
-["📱","Voter Mobile Link","मतदाता विवरण अपडेट की जानकारी"],
-["🚘","Driving Licence Print","लाइसेंस सेवाओं की जानकारी"],
-["🚗","Vehicle RC Print","वाहन RC सेवाओं की जानकारी"],
-["📸","Passport Size Photo","पासपोर्ट फोटो तैयार करने की सुविधा"],
-["🧾","Aadhaar Format Print","अनुमत दस्तावेज़ प्रिंट"],
-["👷","E-Shram Card","ई-श्रम की आधिकारिक जानकारी"],
-["🍚","Ration Card Print","राशन कार्ड सेवाओं की जानकारी"],
-["🧰","Labour Card Print","श्रमिक कार्ड सेवाओं की जानकारी"],
-["📃","Character Certificate","चरित्र प्रमाणपत्र आवेदन जानकारी"],
-["🩺","Ayushman Card","आयुष्मान सेवा की आधिकारिक जानकारी"],
-["📑","Income Certificate","आय प्रमाणपत्र आवेदन जानकारी"]
-];
-const $ = id => document.getElementById(id);
-const root = $("services"), serviceSelect = $("serviceName");
-items.forEach(([icon,name,desc]) => {
- const card=document.createElement("article");card.className="service";
- const em=document.createElement("div");em.className="emoji";em.textContent=icon;
- const h=document.createElement("h3");h.textContent=name;
- const p=document.createElement("p");p.textContent=desc;
- const b=document.createElement("button");b.textContent="Apply Now";
- b.addEventListener("click",()=>openApplication(name));
- card.append(em,h,p,b);root.append(card);
- const opt=document.createElement("option");opt.value=name;opt.textContent=name;serviceSelect.append(opt);
-});
-function showOnly(id){["customerHome","applicationPanel","adminPanel"].forEach(x=>$(x).classList.toggle("hidden",x!==id));window.scrollTo({top:0,behavior:"smooth"});}
-function openApplication(name){$("serviceName").value=name;$("formHeading").textContent=name+" — आवेदन फॉर्म";$("formMessage").textContent="";$("requestForm").reset();$("serviceName").value=name;showOnly("applicationPanel");}
-$("cancelForm").onclick=()=>showOnly("customerHome");
-$("showHomeBtn").onclick=()=>showOnly("customerHome");
-$("showAdminBtn").onclick=()=>{showOnly("adminPanel");checkAdminSession();};
+// प्रत्येक सेवा के लिए अलग-अलग फॉर्म फील्ड। Aadhaar का पूरा नंबर/OTP/पासवर्ड न लें।
+const serviceFieldConfig = {
+ "Aadhaar Print": [
+  ["aadhaar_last4","आधार के अंतिम 4 अंक","text",true],
+  ["print_type","प्रिंट का प्रकार","select",true,["e-Aadhaar","Aadhaar Letter","अन्य"]]
+ ],
+ "PAN Card Print": [
+  ["pan_last4","PAN के अंतिम 4 अक्षर/अंक","text",true],
+  ["applicant_name","PAN पर लिखा नाम","text",true]
+ ],
+ "Jati Certificate": [
+  ["father_name","पिता का नाम","text",true],
+  ["dob","जन्मतिथि","date",true],
+  ["address","पूरा पता","textarea",true],
+  ["district","जिला","text",true]
+ ],
+ "Niwas Certificate": [
+  ["father_name","पिता का नाम","text",true],
+  ["dob","जन्मतिथि","date",true],
+  ["address","पूरा पता","textarea",true],
+  ["district","जिला","text",true]
+ ],
+ "Voter ID Download": [
+  ["epic_number","Voter ID / EPIC नंबर","text",true],
+  ["voter_name","मतदाता का नाम","text",true],
+  ["state","राज्य","text",true]
+ ],
+ "Voter Mobile Link": [
+  ["epic_number","Voter ID / EPIC नंबर","text",true],
+  ["mobile","लिंक किया जाने वाला मोबाइल नंबर","tel",true]
+ ],
+ "Driving Licence Print": [
+  ["dl_number","Driving Licence नंबर","text",true],
+  ["dob","जन्मतिथि","date",true]
+ ],
+ "Vehicle RC Print": [
+  ["vehicle_number","वाहन रजिस्ट्रेशन नंबर","text",true],
+  ["owner_name","वाहन मालिक का नाम","text",true]
+ ],
+ "Passport Size Photo": [
+  ["photo_type","फोटो का प्रकार","select",true,["Passport Size","Stamp Size","अन्य"]],
+  ["copies","फोटो की संख्या","number",true]
+ ],
+ "E-Shram Card": [
+  ["worker_name","श्रमिक का नाम","text",true],
+  ["father_name","पिता का नाम","text",true],
+  ["occupation","व्यवसाय/काम का प्रकार","text",true]
+ ],
+ "Ration Card Print": [
+  ["ration_number","राशन कार्ड नंबर","text",true],
+  ["card_holder","कार्डधारी का नाम","text",true],
+  ["father_husband","पिता/पति का नाम","text",false],
+  ["district","जिला","text",true]
+ ],
+ "Labour Card Print": [
+  ["labour_number","लेबर कार्ड नंबर (यदि उपलब्ध हो)","text",false],
+  ["worker_name","श्रमिक का नाम","text",true],
+  ["father_name","पिता का नाम","text",true],
+  ["occupation","काम का प्रकार","text",true]
+ ],
+ "Ayushman Card": [
+  ["member_name","परिवार के सदस्य का नाम","text",true],
+  ["relation","परिवार के मुखिया से संबंध","text",true]
+ ],
+ "Income Certificate": [
+  ["father_name","पिता का नाम","text",true],
+  ["annual_income","वार्षिक आय (₹)","number",true],
+  ["address","पूरा पता","textarea",true],
+  ["district","जिला","text",true]
+ ],
+ "Business Service": [
+  ["applicant_name","आवेदक का नाम","text",true],
+  ["father_name","पिता का नाम","text",true],
+  ["business_name","व्यवसाय का नाम","text",true],
+  ["business_address","व्यवसाय का पता","textarea",true],
+  ["business_type","व्यवसाय का प्रकार","text",false]
+ ],
+ "Ration Complaint": [
+  ["ration_number","राशन कार्ड नंबर","text",true],
+  ["card_holder","कार्डधारी का नाम","text",true],
+  ["father_husband","पिता/पति का नाम","text",true],
+  ["dealer_name","राशन डीलर का नाम","text",true],
+  ["shop_number","दुकान संख्या (यदि पता हो)","text",false],
+  ["complaint_detail","शिकायत का पूरा विवरण","textarea",true]
+ ],
+ "Character Certificate": [
+  ["father_name","पिता का नाम","text",true],
+  ["dob","जन्मतिथि","date",true],
+  ["address","पूरा पता","textarea",true],
+  ["purpose","प्रमाणपत्र का उद्देश्य","text",true]
+ ]
+};
 
-const allowedTypes=["application/pdf","image/jpeg","image/png"];
-$("requestForm").addEventListener("submit",async e=>{
- e.preventDefault();
- const btn=$("submitBtn"), msg=$("formMessage");
- const name=$("customerName").value.trim(), mobile=$("customerMobile").value.trim();
- const service=$("serviceName").value, message=$("message").value.trim();
- const files=Array.from($("documents").files||[]);
- if(!/^[6-9][0-9]{9}$/.test(mobile)){msg.textContent="कृपया सही 10 अंकों का मोबाइल नंबर डालें।";return;}
- if(files.length>5){msg.textContent="अधिकतम 5 फाइलें अपलोड कर सकते हैं।";return;}
- for(const f of files){if(!allowedTypes.includes(f.type)||f.size>10*1024*1024){msg.textContent="हर फाइल PDF/JPG/PNG और 10 MB से छोटी होनी चाहिए।";return;}}
- btn.disabled=true;msg.textContent="आवेदन जमा हो रहा है...";
- try{
-  const requestId=crypto.randomUUID(), paths=[];
-  for(let i=0;i<files.length;i++){
-   const f=files[i], ext=f.name.split(".").pop().toLowerCase();
-   const path=requestId+"/"+(i+1)+"-"+crypto.randomUUID()+"."+ext;
-   const {error:uploadError}=await db.storage.from(BUCKET).upload(path,f,{contentType:f.type,upsert:false});
-   if(uploadError) throw uploadError;
-   paths.push(path);
+function renderServiceFields(service) {
+ const host = $("serviceFields");
+ host.innerHTML = "";
+ const fields = serviceFieldConfig[service] || [];
+ if (!fields.length) return;
+
+ const heading = document.createElement("h4");
+ heading.textContent = service + " के लिए जरूरी जानकारी";
+ host.append(heading);
+
+ fields.forEach(([key,label,type,required,options]) => {
+  const wrap = document.createElement("div");
+  const lab = document.createElement("label");
+  lab.textContent = label + (required ? " *" : "");
+  let control;
+  if (type === "select") {
+   control = document.createElement("select");
+   const placeholder = document.createElement("option");
+   placeholder.value = "";
+   placeholder.textContent = "चुनें";
+   control.append(placeholder);
+   (options || []).forEach(value => {
+    const opt = document.createElement("option");
+    opt.value = value;
+    opt.textContent = value;
+    control.append(opt);
+   });
+  } else if (type === "textarea") {
+   control = document.createElement("textarea");
+   control.rows = 2;
+  } else {
+   control = document.createElement("input");
+   control.type = type;
   }
-  const {error}=await db.from("service_requests").insert({
-   customer:name,customer_mobile:mobile,service_name:service,message:message,
-   status:"Pending",document_paths:paths
-  });
-  if(error) throw error;
-  $("requestForm").reset();
-  msg.textContent="आपका आवेदन सफलतापूर्वक जमा हो गया है। आपका आवेदन Admin Panel में पहुँच गया है।";
- }catch(err){console.error(err);msg.textContent="आवेदन जमा नहीं हुआ: "+(err.message||"कृपया बाद में प्रयास करें।");}
- finally{btn.disabled=false;}
-});
+  control.id = "service_" + key;
+  control.name = key;
+  control.required = required;
+  control.maxLength = type === "textarea" ? 1000 : 120;
+  wrap.append(lab, control);
+  host.append(wrap);
+ });
+}
 
-function adminMessage(t){$("loginMessage").textContent=t;$("adminMessage").textContent=t;}
-async function checkAdminSession(){
- const {data:{session}}=await db.auth.getSession();
- if(session && session.user.id===ADMIN_UID){$("adminLogin").classList.add("hidden");$("adminContent").classList.remove("hidden");await loadRequests();}
- else{$("adminLogin").classList.remove("hidden");$("adminContent").classList.add("hidden");}
+function collectServiceDetails() {
+ const values = [];
+ $("serviceFields").querySelectorAll("input,select,textarea").forEach(el => {
+  const label = el.previousElementSibling?.textContent || el.name;
+  const value = el.value.trim();
+  if (value) values.push(label + ": " + value);
+ });
+ return values.join("\\n");
 }
-$("loginForm").addEventListener("submit",async e=>{
- e.preventDefault();$("loginMessage").textContent="Login हो रहा है...";
- const {data,error}=await db.auth.signInWithPassword({email:$("adminEmail").value.trim(),password:$("adminPassword").value});
- if(error){$("loginMessage").textContent="Login नहीं हुआ: "+error.message;return;}
- if(data.user.id!==ADMIN_UID){await db.auth.signOut();$("loginMessage").textContent="यह Admin Account अधिकृत नहीं है।";return;}
- $("loginMessage").textContent="Login सफल।";await checkAdminSession();
-});
-$("logoutBtn").onclick=async()=>{await db.auth.signOut();$("adminLogin").classList.remove("hidden");$("adminContent").classList.add("hidden");};
-$("refreshBtn").onclick=loadRequests;
 
-async function loadRequests(){
- $("adminMessage").textContent="आवेदन लोड हो रहे हैं...";
- const {data,error}=await db.from("service_requests").select("*").order("created_at",{ascending:false}).limit(100);
- if(error){$("adminMessage").textContent="आवेदन नहीं मिले: "+error.message;return;}
- const rows=data||[];
- $("totalCount").textContent=rows.length;
- $("pendingCount").textContent=rows.filter(r=>(r.status||"").toLowerCase()==="pending").length;
- $("doneCount").textContent=rows.filter(r=>(r.status||"").toLowerCase()==="completed").length;
- const list=$("requestList");list.innerHTML="";
- if(!rows.length){list.textContent="अभी कोई आवेदन जमा नहीं हुआ है।";$("adminMessage").textContent="";return;}
- for(const r of rows){
-  const box=document.createElement("article");box.className="request";
-  const title=document.createElement("h3");title.textContent="#"+r.id+" — "+(r.service_name||"सेवा");
-  const detail=document.createElement("p");detail.textContent="नाम: "+(r.customer||"")+" | मोबाइल: "+(r.customer_mobile||"");
-  const date=document.createElement("p");date.className="muted";date.textContent="तारीख: "+(r.created_at?new Date(r.created_at).toLocaleString("hi-IN"):"");
-  const note=document.createElement("p");note.textContent="जानकारी: "+(r.message||"");
-  const statusLabel=document.createElement("label");statusLabel.textContent="आवेदन स्थिति";
-  const select=document.createElement("select");
-  ["Pending","Processing","Completed","Rejected"].forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent=s;if((r.status||"Pending")===s)o.selected=true;select.append(o);});
-  const update=document.createElement("button");update.textContent="Status Save करें";
-  update.onclick=async()=>{update.disabled=true;const {error}=await db.from("service_requests").update({status:select.value}).eq("id",r.id);update.disabled=false;$("adminMessage").textContent=error?"Status अपडेट नहीं हुआ: "+error.message:"Status अपडेट हो गया।";};
-  box.append(title,detail,date,note,statusLabel,select,update);
-  const paths=Array.isArray(r.document_paths)?r.document_paths:[];
-  if(paths.length){const dh=document.createElement("p");dh.textContent="दस्तावेज़:";box.append(dh);
-   for(const path of paths){const {data:linkData,error:linkError}=await db.storage.from(BUCKET).createSignedUrl(path,300);
-    if(!linkError&&linkData?.signedUrl){const a=document.createElement("a");a.href=linkData.signedUrl;a.target="_blank";a.rel="noopener";a.className="doclink";a.textContent="दस्तावेज़ खोलें / डाउनलोड";box.append(a);}
-   }
-  }else{const no=document.createElement("p");no.className="muted";no.textContent="कोई दस्तावेज़ अपलोड नहीं हुआ।";box.append(no);}
-  list.append(box);
- }
- $("adminMessage").textContent="नवीनतम 100 आवेदन दिखाए गए हैं।";
-}
-async function payUPI(){
- const amount=Number($("payAmount").value);
- if(!amount||amount<=0){alert("कृपया सही भुगतान राशि डालें।");return;}
- location.href="upi://pay?pa=7281877653-2@ybl&pn=CSC%20SMART%20BISEK&cu=INR&am="+amount.toFixed(2);
-}
-function makeQR(){const box=$("upiQR");if(!box||!window.QRCode)return;box.innerHTML="";const amount=Number($("payAmount").value);let link="upi://pay?pa=7281877653-2@ybl&pn=CSC%20SMART%20BISEK&cu=INR";if(amount>0)link+="&am="+amount.toFixed(2);new QRCode(box,{text:link,width:190,height:190});}
-$("payAmount").addEventListener("input",makeQR);makeQR();
+services.forEach(([ico,name,desc])=>{let c=document.createElement("article");c.className="service";c.innerHTML="";let e=document.createElement("div");e.className="emoji";e.textContent=ico;let h=document.createElement("h3");h.textContent=name;let p=document.createElement("p");p.textContent=desc;let b=document.createElement("button");b.textContent="Apply Now";b.onclick=()=>{ $("serviceName").value=name;show("auth");authMode("login");};c.append(e,h,p,b);$("services").append(c);let o=document.createElement("option");o.value=name;o.textContent=name;$("serviceName").append(o);});
+function show(id){["home","auth","customer","admin"].forEach(x=>$(x).classList.toggle("hidden",x!==id));window.scrollTo(0,0);}
+$("serviceName").addEventListener("change", e => renderServiceFields(e.target.value));
+let mode="register";function authMode(m){mode=m;$("nameWrap").classList.toggle("hidden",m!=="register");$("authSubmit").textContent=m==="register"?"रजिस्ट्रेशन करें":"लॉगिन करें";$("authMsg").textContent="";}
+function phoneToAuth(p){return "+91"+p;}
+$("authForm").onsubmit=async e=>{e.preventDefault();let p=$("phone").value.trim(),pass=$("password").value;if(!/^[6-9][0-9]{9}$/.test(p)){ $("authMsg").textContent="सही 10 अंकों का मोबाइल नंबर डालें।";return;}if(pass.length<8){$("authMsg").textContent="पासवर्ड कम से कम 8 अक्षर का रखें।";return;}
+$("authSubmit").disabled=true;$("authMsg").textContent="कृपया प्रतीक्षा करें...";
+try{if(mode==="register"){let name=$("fullName").value.trim();if(!name)throw Error("अपना नाम भरें।");let {data,error}=await db.auth.signUp({phone:phoneToAuth(p),password:pass,options:{data:{full_name:name}}});if(error)throw error;if(!data.session){$("authMsg").textContent="खाता अनुरोध बन गया। Supabase में Phone Confirmation चालू है; सेटिंग के अनुसार सत्यापन पूरा करना होगा।";return;}}
+else{let {error}=await db.auth.signInWithPassword({phone:phoneToAuth(p),password:pass});if(error)throw error;}
+await loadCustomer();
+}catch(err){$("authMsg").textContent=err.message||"लॉगिन नहीं हो पाया।";}finally{$("authSubmit").disabled=false;}};
+async function loadCustomer(){let {data:{user}}=await db.auth.getUser();if(!user){show("auth");return;}show("customer");renderServiceFields($("serviceName").value);$("customerHello").textContent="नमस्ते, "+(user.user_metadata?.full_name||user.phone||"ग्राहक");await loadMyData();}
+async function loadMyData(){let {data:req,error}=await db.from("customer_requests").select("*").order("created_at",{ascending:false});if(error){$("myRequests").textContent=error.message;return;}req=req||[];$("myApps").textContent=req.length;$("myPending").textContent=req.filter(x=>x.status==="Pending"||x.status==="Processing").length;$("myRequests").innerHTML="";req.forEach(r=>{let d=document.createElement("div");d.className="request";d.textContent="#"+r.id+" | "+r.service_name+" | स्थिति: "+r.status+" | "+new Date(r.created_at).toLocaleString("hi-IN");$("myRequests").append(d);});
+let {data:pay, error:pe}=await db.from("customer_payments").select("*").order("created_at",{ascending:false});if(pe){$("myPayments").textContent=pe.message;return;}pay=pay||[];$("myPaid").textContent="₹"+pay.filter(x=>x.status==="verified").reduce((s,x)=>s+Number(x.amount),0);$("myPayments").innerHTML="";pay.forEach(p=>{let d=document.createElement("div");d.className="request";d.textContent="₹"+p.amount+" | "+p.purpose+" | "+p.status+" | "+new Date(p.created_at).toLocaleDateString("hi-IN");$("myPayments").append(d);});}
+$("requestForm").onsubmit=async e=>{
+ e.preventDefault();
+ const {data:{user}}=await db.auth.getUser();
+ if(!user){$("requestMsg").textContent="कृपया पहले लॉगिन करें।";return;}
+ const service=$("serviceName").value;
+ const details=collectServiceDetails();
+ const extra=$("message").value.trim();
+ const message=[details,extra ? "अतिरिक्त जानकारी: "+extra : ""].filter(Boolean).join("\\n");
+ if(!details){$("requestMsg").textContent="कृपया इस सेवा की जरूरी जानकारी भरें।";return;}
+ const {error}=await db.from("customer_requests").insert({
+  user_id:user.id,service_name:service,message,
+  customer_name:user.user_metadata?.full_name||"",
+  customer_mobile:user.phone||""
+ });
+ $("requestMsg").textContent=error?"आवेदन जमा नहीं हुआ: "+error.message:"आवेदन सफलतापूर्वक जमा हुआ।";
+ if(!error){$("message").value="";renderServiceFields(service);await loadMyData();}
+};
+async function logout(){await db.auth.signOut();show("home");}
+$("adminForm").onsubmit=async e=>{e.preventDefault();$("adminMsg").textContent="लॉगिन हो रहा है...";let {data,error}=await db.auth.signInWithPassword({email:$("adminEmail").value.trim(),password:$("adminPassword").value});if(error){$("adminMsg").textContent=error.message;return;}if(data.user.id!==ADMIN_UID){await db.auth.signOut();$("adminMsg").textContent="यह Admin account अधिकृत नहीं है।";return;}$("adminLogin").classList.add("hidden");$("adminContent").classList.remove("hidden");await loadAdmin();};
+async function adminLogout(){await db.auth.signOut();$("adminLogin").classList.remove("hidden");$("adminContent").classList.add("hidden");show("home");}
+async function loadAdmin(){let {data:req,error}=await db.from("customer_requests").select("*").order("created_at",{ascending:false}).limit(200);if(error){$("adminRequests").textContent=error.message;return;}req=req||[];$("allApps").textContent=req.length;$("allPending").textContent=req.filter(x=>x.status==="Pending"||x.status==="Processing").length;$("adminRequests").innerHTML="";req.forEach(r=>{let d=document.createElement("div");d.className="request";let h=document.createElement("h3");h.textContent="#"+r.id+" — "+r.service_name;let p=document.createElement("p");p.textContent=(r.customer_name||"")+" | "+(r.customer_mobile||"")+" | "+r.message;let s=document.createElement("select");["Pending","Processing","Completed","Rejected"].forEach(v=>{let o=document.createElement("option");o.value=v;o.textContent=v;o.selected=r.status===v;s.append(o);});let b=document.createElement("button");b.textContent="स्थिति सेव करें";b.onclick=async()=>{let {error}=await db.from("customer_requests").update({status:s.value}).eq("id",r.id);alert(error?error.message:"स्थिति अपडेट हो गई।");await loadAdmin();};d.append(h,p,s,b);$("adminRequests").append(d);});
+let {data:payments,error:payErr}=await db.from("customer_payments").select("*").order("created_at",{ascending:false}).limit(200);if(payErr){$("adminPayments").textContent=payErr.message;return;}payments=payments||[];$("allPaid").textContent="₹"+payments.filter(x=>x.status==="verified").reduce((s,x)=>s+Number(x.amount),0);$("adminPayments").innerHTML="";payments.forEach(p=>{let d=document.createElement("div");d.className="request";let t=document.createElement("p");t.textContent="₹"+p.amount+" | "+p.purpose+" | UTR: "+(p.utr||"नहीं दिया")+" | "+p.status;let b=document.createElement("button");b.textContent="Verify Payment";b.onclick=async()=>{let {error}=await db.from("customer_payments").update({status:"verified"}).eq("id",p.id);alert(error?error.message:"पेमेंट verified मार्क हो गया।");await loadAdmin();};d.append(t,b);$("adminPayments").append(d);});}
+db.auth.getSession().then(({data})=>{if(data.session)loadCustomer();});
 </script>
-</body>
-</html>
+</body></html>
